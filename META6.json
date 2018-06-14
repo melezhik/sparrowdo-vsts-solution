@@ -1,0 +1,19 @@
+{
+  "perl"        : "6.*",
+  "name"        : "Sparrowdo::VSTS::YAML::Solution",
+  "version"     : "*",
+  "description" : "Sparrowdo module to generate VSTS yaml steps to build solution files",
+  "authors" : [ "Alexey Melezhik"],
+  "depends"     : [
+                    "Sparrowdo"
+                  ],
+  "source-type" : "git",
+  "support" : {
+    },
+   "provides" : {
+        "Sparrowdo::VSTS::YAML::Solution" : "lib/Sparrowdo/VSTS/YAML/Solution.pm6"
+  },
+  "resources" : [
+    "build.yaml"
+  ]
+}

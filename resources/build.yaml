@@ -1,0 +1,29 @@
+[% UNLESS skip_nuget_install %]
+- task: NuGetToolInstaller@0
+  displayName: Use NuGet
+  inputs:
+    checkLatest: true
+[% END %]
+
+- task: NuGetCommand@2
+  displayName: NuGet restore
+  inputs:
+    restoreSolution: '[% restore_solution %]'
+    feedsToUse: config
+
+- task: VSBuild@1
+  displayName: Build solution [% solution %]
+  inputs:
+    vsVersion: [%vs_version %]
+    solution: '[% solution %]'
+    platform: '[% platform %]'
+    configuration: '[% configuration %]'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="\$(build.artifactstagingdirectory)\\[% configuration %]\\"'
+
+- task: PublishSymbols@1
+  displayName: Publish symbols path
+  inputs:
+    SearchPattern: '**\bin\**\*.pdb'
+  continueOnError: true
+  condition: succeededOrFailed()
+
