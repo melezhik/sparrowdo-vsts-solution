@@ -22,7 +22,9 @@ our sub tasks (%args) {
       platform => %args<platform> || 'x86',
       configuration => %args<configuration> || 'debug' ,
       restore_solution => %args<restore-solution> || '"**\*.sln"',
-      skip_nuget_install => %args<skip-nuget-install>
+      skip_nuget_install => %args<skip-nuget-install>,
+      test_assemblies => %args<test-assemblies>,
+      publish_symbols => %args<publish-symbols>,
     )
   );
 
