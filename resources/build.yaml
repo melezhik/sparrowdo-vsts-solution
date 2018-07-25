@@ -5,11 +5,13 @@
     checkLatest: true
 [% END %]
 
+[%- UNLESS skip_nuget_restore %]
 - task: NuGetCommand@2
   displayName: NuGet restore
   inputs:
     restoreSolution: '[% restore_solution %]'
     feedsToUse: config
+[%- END %]
 
 - task: VSBuild@1
   displayName: Build solution [% solution %]
@@ -40,3 +42,4 @@
   continueOnError: true
   condition: succeededOrFailed()
 [%- END %]
+

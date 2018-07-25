@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+    - Add skip-nuget-restore command
+
+    - Update documentation
+
 0.0.1  2018-06-14T17:20:47Z
 
     - First release

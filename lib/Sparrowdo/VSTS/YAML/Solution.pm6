@@ -23,6 +23,7 @@ our sub tasks (%args) {
       configuration => %args<configuration> || 'debug' ,
       restore_solution => %args<restore-solution> || '"**\*.sln"',
       skip_nuget_install => %args<skip-nuget-install>,
+      skip_nuget_restore => %args<skip-nuget-restore>,
       test_assemblies => %args<test-assemblies>,
       publish_symbols => %args<publish-symbols>,
     )
