@@ -4,6 +4,8 @@
 
     - Update documentation
 
+    - Add /p:PrecompileBeforePublish=true to build options
+
 0.0.1  2018-06-14T17:20:47Z
 
     - First release
