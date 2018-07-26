@@ -14,9 +14,9 @@
 [%- END %]
 
 - task: VSBuild@1
-  displayName: Build solution [% solution %]
+  displayName: [% display_name %]
   inputs:
-    vsVersion: [%vs_version %]
+    vsVersion: [% vs_version %]
     solution: '[% solution %]'
     platform: '[% platform %]'
     configuration: '[% configuration %]'
