@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Null parameter interpolation fix
+
 0.0.3  2018-07-26T20:45:11Z
 
     - Display name parameter

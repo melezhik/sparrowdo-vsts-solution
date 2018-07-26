@@ -1,6 +1,6 @@
 use v6;
 
-unit module Sparrowdo::VSTS::YAML::Solution:ver<0.0.3>;
+unit module Sparrowdo::VSTS::YAML::Solution:ver<0.0.4>;
 
 use Sparrowdo;
 use Sparrowdo::Core::DSL::Template;
@@ -15,12 +15,14 @@ our sub tasks (%args) {
   directory "$build-dir/files";
 
   my $cfg = %args<configuration> || 'debug';
+  my $solution = %args<solution> || '"**\*.sln"';
+
   template-create "$build-dir/.cache/build.yaml.sample", %(
     source => ( slurp %?RESOURCES<build.yaml> ),
     variables => %( 
       vs_version => %args<vs-version> || '15.0',
-      display_name => %args<display-name> || "Build solution %args<solution> for $cfg",
-      solution => %args<solution> || '"**\*.sln"',
+      display_name => %args<display-name> || "Build solution $solution for $cfg",
+      solution => $solution,
       platform => %args<platform> || 'x86',
       configuration => $cfg ,
       restore_solution => %args<restore-solution> || '"**\*.sln"',
